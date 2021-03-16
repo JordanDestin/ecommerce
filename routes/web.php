@@ -36,6 +36,9 @@ Route::group(['middleware' =>['auth']], function(){
     Route::get('/merci', 'PaymentController@thankYou')->name('checkout.thankYou');
 });
 
-
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+// BACK
+
+Route::view('admin', 'back.layout');
+
