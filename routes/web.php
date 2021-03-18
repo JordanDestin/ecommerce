@@ -42,3 +42,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::view('admin', 'back.layout');
 
+
+Route::get('admin-products', 'Back\ProductController@index'); 
+
