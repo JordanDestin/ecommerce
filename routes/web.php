@@ -44,4 +44,4 @@ Route::view('admin', 'back.layout');
 
 
 Route::get('admin-products', 'Back\ProductController@index'); 
-
+Route::get('create-products', 'Back\ProductController@create');
