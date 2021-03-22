@@ -6,6 +6,7 @@ use App\DataTables\ProductDataTable;
 use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image as InterventionImage;
 
 class ProductController extends Controller
 {
@@ -38,7 +39,21 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+        $name = time() . '.' . $image->extension();
+        $img = InterventionImage::make($image->path());
+        $img->widen(800)->encode()->save(public_path('/images/') . $name);
+        $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+
+        Product::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'price' => $request->price,
+            'quantite' => $request->quantite,
+            'image' => $name
+        ]);
+
+        return back();
     }
 
     /**

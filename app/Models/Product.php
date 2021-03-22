@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
+    protected $fillable = [
+        'title', 'price', 'quantite','image', 'description',
+    ];
+
     public function getPrice()
     {
         $price = $this->price / 100;

@@ -43,5 +43,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::view('admin', 'back.layout');
 
 
-Route::get('admin-products', 'Back\ProductController@index'); 
+Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
 Route::get('create-products', 'Back\ProductController@create');
+Route::post('add-products', 'Back\ProductController@store')->name('add.product');
+Route::post('update-products', 'Back\ProductController@update')->name('update.product');

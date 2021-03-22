@@ -84,13 +84,11 @@ class ProductDataTable extends DataTable
                   ->addClass('text-center'),*/
                   Column::make('id'),
                   Column::make('title')->title('Nom'),
-                  Column::make('subtitle')->title('Sous-titre'),
+                //  Column::make('subtitle')->title('Sous-titre'),
                   Column::make('description')->title('Description'),
+                  Column::make('quantite')->title('Quantité'),
                   Column::make('price')->title('Prix TTC'),
-                  Column::make('active')
-                    ->title('Actif')              
-                    ->width(60)
-                    ->addClass('text-center'),
+                  
                   Column::computed('show')
                     ->title('')
                     ->width(60)
