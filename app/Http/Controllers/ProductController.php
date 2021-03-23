@@ -24,9 +24,9 @@ class ProductController extends Controller
         return view('products.index')->with('products', $products);
     }
 
-    public function show($slug)
+    public function show($id)
     {
-        $product = Product::where('slug',$slug)->firstOrFail();
+        $product = Product::where('id',$id)->firstOrFail();
 
         return view('products.show', array(
             'product' => $product
@@ -35,13 +35,11 @@ class ProductController extends Controller
 
     public function search ()
     {
-
         $q = request()->input('q');
 
         $products =  Product::where('title','Like',"%$q%")
                 ->orWhere('description','Like',"%$q%")
                 ->paginate(8);
-        
         return view('products.search')->with('products', $products);
     }
     

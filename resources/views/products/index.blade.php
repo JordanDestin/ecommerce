@@ -8,7 +8,8 @@
       @foreach($products as $product)
       <div class="col-lg-3 cards">
         <div class="card cardproduct">
-            <a href="{{ route('products.show',$product->slug) }}">
+
+            <a href="{{ route('products.show',$product->id) }}">
           <div class="card-image">
           
             <img src="{{ $product->image }}" alt="">

@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 //Route::get('/', 'ProductController@index')->name('home');
 Route::get('produits/', 'ProductController@index')->name('products.index');
-Route::get('produit/{slug}', 'ProductController@show')->name('products.show');
+Route::get('produit/{id}', 'ProductController@show')->name('products.show');
 Route::get('search', 'ProductController@search')->name('products.search');
 
 
