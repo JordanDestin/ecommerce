@@ -3,3 +3,22 @@
     height: 400px;
     margin: 0 auto;
 }
+
+img{
+    width: 100% !important;
+}
+
+.card-content{
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.productprice{
+    position: absolute;
+    bottom: 0;
+    transform: translateX(50%);
+}
