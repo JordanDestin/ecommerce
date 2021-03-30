@@ -45,5 +45,6 @@ Route::view('admin', 'back.layout');
 
 Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
 Route::get('create-products', 'Back\ProductController@create');
+Route::get('modify-products/{id}', 'Back\ProductController@edit')->name('edit.product');
 Route::post('add-products', 'Back\ProductController@store')->name('add.product');
 Route::post('update-products', 'Back\ProductController@update')->name('update.product');

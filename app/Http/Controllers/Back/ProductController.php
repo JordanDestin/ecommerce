@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Back;
 
 use App\DataTables\ProductDataTable;
 use App\Models\Product;
+use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as InterventionImage;
@@ -28,7 +29,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('back.products.forms');
+        $categories = Category::all();
+
+        return view('back.products.forms',array(
+            'categories' => $categories
+        ));
     }
 
     /**
@@ -75,7 +80,12 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::where('id',$id)->first();
+        $categories = Category::all();
+        return view('back.products.forms', [
+            'product' => $product,
+            'categories' => $categories
+            ]);
     }
 
     /**
@@ -87,7 +97,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
     }
 
     /**

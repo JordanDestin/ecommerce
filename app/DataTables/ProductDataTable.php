@@ -22,10 +22,10 @@ class ProductDataTable extends DataTable
         return datatables()
             ->eloquent($query)
             ->addColumn('show', function ($product) {
-                return '<a href="#" class="btn btn-xs btn-info btn-block" target="_blank">Voir</a>';
+                return '<a href="' . route('products.show', $product->id) . '" class="btn btn-xs btn-info btn-block" target="_blank">Voir</a>';
             })
             ->addColumn('edit', function ($product) {
-                return '<a href="#" class="btn btn-xs btn-warning btn-block">Modifier</a>';
+                return '<a href="' . route('edit.product', $product->id) . '" class="btn btn-xs btn-warning btn-block">Modifier</a>';
             })
             ->addColumn('destroy', function ($product) {
                 return '<a href="#" class="btn btn-xs btn-danger btn-block">Supprimer</a>';

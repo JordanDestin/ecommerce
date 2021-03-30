@@ -35,6 +35,7 @@ class ProductController extends Controller
 
     public function search ()
     {
+
         $q = request()->input('q');
 
         $products =  Product::where('title','Like',"%$q%")
