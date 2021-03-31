@@ -9,8 +9,7 @@
 <div class="box-body">
 
     <form method="POST" action="@isset($product) {{ route('update.product', $product) }} @else {{ route('add.product') }} @endisset" enctype="multipart/form-data">
-        @isset($product) @method('PUT') 
-        @endisset
+      
         @csrf  
       <!-- text input -->
       <div class="form-group">
@@ -28,15 +27,15 @@
         <input type="number" name="price" id="price" class="form-control" placeholder="Prix" @isset($product) value="{{$product->price}}" @else value="" @endisset>
       </div>
       <div class="form-group">
-        <label>Description</label>{{$product->description}}
-        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description"  value="{{$product->description}}" @else value="" @endisset></textarea>
+        <label>Description</label>
+        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description">@isset($product){{$product->description}}@endisset
+        </textarea>
       </div>
       <div class="form-group">
         <label>Catégorie</label>
-        <select class="form-control">
-            <option>Catégorie</option>
+        <select class="form-control" name="category[]" id="category" multiple="multiple">
             @foreach ($categories as $category)
-            <option>{{$category->name}}</option>
+            <option value="{{$category->id}}">{{$category->name}}</option>
             @endforeach
         </select>
       </div>

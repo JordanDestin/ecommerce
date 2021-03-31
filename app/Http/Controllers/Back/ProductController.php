@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Back;
 use App\DataTables\ProductDataTable;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Category_Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as InterventionImage;
@@ -44,13 +45,15 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+
+
         $image = $request->file('image');
         $name = time() . '.' . $image->extension();
         $img = InterventionImage::make($image->path());
         $img->widen(800)->encode()->save(public_path('/images/') . $name);
         $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
 
-        Product::create([
+       $product =  Product::create([
             'title' => $request->title,
             'description' => $request->description,
             'price' => $request->price,
@@ -58,6 +61,13 @@ class ProductController extends Controller
             'image' => $name
         ]);
 
+        foreach($request->category as $value)
+        {
+            Category_Product::create([
+                'product_id' => $product->id,
+                'category_id' => $value
+            ]);
+        }
         return back();
     }
 
@@ -97,7 +107,44 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
+      /*  dd();
+        if(!empty($request->file('image')))
+        {
+            File::delete([
+                public_path('/images/') . $produit->image, 
+                public_path('/images/thumbs/') . $produit->image,
+            ]);
+        }
+            
+
+        $image = $request->file('image');
+        $name = time() . '.' . $image->extension();
+        $img = InterventionImage::make($image->path());
+        $img->widen(800)->encode()->save(public_path('/images/') . $name);
+        $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+*/
+       $product =  Product::where('id',$id)
+            ->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'price' => $request->price,
+                'quantite' => $request->quantite,
+                'image' => $name
+             ]);
+
+             if(!empty($request->category))
+             {
+                $categoriesProduct = Category_Product::where('product_id',$id)->delete();
+                foreach($request->category as $value)
+                {
+                    Category_Product::create([
+                        'product_id' => $id,
+                        'category_id' => $value
+                        ]);
+                  }
+             }
         
+        return back();
     }
 
     /**

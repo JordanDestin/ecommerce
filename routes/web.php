@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 //Route::get('/', 'ProductController@index')->name('home');
 Route::get('produits/', 'ProductController@index')->name('products.index');
@@ -44,7 +42,7 @@ Route::view('admin', 'back.layout');
 
 
 Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
-Route::get('create-products', 'Back\ProductController@create');
+Route::get('create-products', 'Back\ProductController@create')->name('create.product');
 Route::get('modify-products/{id}', 'Back\ProductController@edit')->name('edit.product');
 Route::post('add-products', 'Back\ProductController@store')->name('add.product');
-Route::post('update-products', 'Back\ProductController@update')->name('update.product');
+Route::post('update-products/{id}', 'Back\ProductController@update')->name('update.product');

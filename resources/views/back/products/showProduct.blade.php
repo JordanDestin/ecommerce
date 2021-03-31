@@ -5,10 +5,12 @@
 @endsection
 
 @section('main') 
+  
+@if(Route::currentRouteName() === 'list.product')
+    <a class="btn btn-primary" href="{{ route('create.product') }}" role="button">Ajouter un nouveau produit</a>
+  @endif
+
   {{ $dataTable->table(['class' => 'table table-bordered table-hover table-sm'], true) }}
-{{-- @if(Route::currentRouteName() === 'pays.index')
-    <a class="btn btn-primary" href="{{ route('pays.create') }}" role="button">Créer un nouveau pays</a>
-  @endif*/ --}}
 @endsection
 
 @section('js') 
