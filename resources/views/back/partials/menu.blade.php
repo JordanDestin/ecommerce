@@ -5,7 +5,7 @@
 
 
 <li><i class="nav-icon fas fa-tachometer-alt"><a href="{{url('admin')}}">Dashboard </a> </i></li>
-<li><a href="{{url('admin-products')}}">Produits </a> </li>
+<li><i class="nav-icon fas fa-store"></i><a href="{{url('admin-products')}}">Produits </a> </li>
     
 
 

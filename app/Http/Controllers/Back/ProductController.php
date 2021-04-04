@@ -46,8 +46,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-
-
         $image = $request->file('image');
         $name = time() . '.' . $image->extension();
         $img = InterventionImage::make($image->path());
@@ -91,8 +89,10 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        
         $product = Product::where('id',$id)->first();
-        $categories = Category::all();
+       // $categories = Category::all();
+        $categories = Category::where('product_id',$id);
         return view('back.products.forms', [
             'product' => $product,
             'categories' => $categories
@@ -109,22 +109,33 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $imageProduct = Product::where('id',$id)->first();
+        //$imageProduct = Product::where('id',$id)->first();
+
+        $Product = Product::find($id);
 
         if($request->has('image')) {
             File::delete([
-                public_path('/images/') . $imageProduct['image'], 
-                public_path('/images/thumbs/') . $imageProduct['image'],
-            ]);;       
+                public_path('/images/') . $Product['image'], 
+                public_path('/images/thumbs/') . $Product['image'],
+            ]);
+            
+            $image = $request->file('image');
+            $name = time() . '.' . $image->extension();
+            $img = InterventionImage::make($image->path());
+            $img->widen(800)->encode()->save(public_path('/images/') . $name);
+            $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+
+            $Product->image = $name;
         }
+              
+        $Product->title = $request->title;
+        $Product->description = $request->description;
+        $Product->price = $request->price;
+        $Product->quantite = $request->quantite;
 
-        $image = $request->file('image');
-        $name = time() . '.' . $image->extension();
-        $img = InterventionImage::make($image->path());
-        $img->widen(800)->encode()->save(public_path('/images/') . $name);
-        $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+        $Product->save();
 
-       $product =  Product::where('id',$id)
+    /*   $product =  Product::where('id',$id)
             ->update([
                 'title' => $request->title,
                 'description' => $request->description,
@@ -132,7 +143,7 @@ class ProductController extends Controller
                 'quantite' => $request->quantite,
                 'image' => $name
              ]);
-
+*/
              if(!empty($request->category))
              {
                 $categoriesProduct = Category_Product::where('product_id',$id)->delete();
