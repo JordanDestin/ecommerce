@@ -37,12 +37,12 @@ Route::group(['middleware' =>['auth']], function(){
 Route::get('/home', 'HomeController@index')->name('home');
 
 // BACK
-
 Route::view('admin', 'back.layout');
-
 
 Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
 Route::get('create-products', 'Back\ProductController@create')->name('create.product');
 Route::get('modify-products/{id}', 'Back\ProductController@edit')->name('edit.product');
 Route::post('add-products', 'Back\ProductController@store')->name('add.product');
 Route::post('update-products/{id}', 'Back\ProductController@update')->name('update.product');
+Route::delete('destroy-product/{id}','Back\ProductController@destroy')->name('destroy.product');
+

@@ -6,22 +6,15 @@
   <div  class="row">
     
       @foreach($products as $product)
-      <div class="col-lg-3 cards">
-        <div class="card">
-            <a class="kiki" href="{{ route('products.show',$product->id) }}">
+      <div class="col-lg-4 cards mb-3">
+        <div class="card cardproduct">
+            <a href="{{ route('products.show',$product->id) }}">
           <div class="card-image">
-            
-            <img src="{{ $product->image }}" alt="">
-          
+            <img src="{{asset('images/thumbs/' .$product->image  ) }}">
           </div>          
-          <div class="card-content center-align">
-            <p><strong>{{$product->getPrice() }} € TTC</strong></p>
-            <p>
-              @foreach ($product->categories as $category)
-                  {{$category->name}}
-              @endforeach
-            </p>
-            <p>{{ $product->title }}</p>
+          <div class="card-content text-center">
+            <h5 class="">{{ $product->title }}</h3>
+            <p class="productprice"><strong>{{$product->getPrice() }} € TTC</strong></p>
           </div>
         </a>
         </div>

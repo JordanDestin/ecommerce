@@ -28,7 +28,7 @@ class ProductDataTable extends DataTable
                 return '<a href="' . route('edit.product', $product->id) . '" class="btn btn-xs btn-warning btn-block">Modifier</a>';
             })
             ->addColumn('destroy', function ($product) {
-                return '<a href="#" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
+                return '<a href="' . route('destroy.product', $product->id) . '" class="btn btn-xs btn-danger btn-block">Supprimer</a>';
             })
             ->editColumn('active', function ($product) {
                 return $product->active ? '<i class="fas fa-check text-success"></i>' : ''; 

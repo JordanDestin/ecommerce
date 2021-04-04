@@ -9,6 +9,7 @@ use App\Models\Category_Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image as InterventionImage;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends Controller
 {
@@ -98,6 +99,7 @@ class ProductController extends Controller
             ]);
     }
 
+
     /**
      * Update the specified resource in storage.
      *
@@ -107,22 +109,21 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-      /*  dd();
-        if(!empty($request->file('image')))
-        {
+        $imageProduct = Product::where('id',$id)->first();
+
+        if($request->has('image')) {
             File::delete([
-                public_path('/images/') . $produit->image, 
-                public_path('/images/thumbs/') . $produit->image,
-            ]);
+                public_path('/images/') . $imageProduct['image'], 
+                public_path('/images/thumbs/') . $imageProduct['image'],
+            ]);;       
         }
-            
 
         $image = $request->file('image');
         $name = time() . '.' . $image->extension();
         $img = InterventionImage::make($image->path());
         $img->widen(800)->encode()->save(public_path('/images/') . $name);
         $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
-*/
+
        $product =  Product::where('id',$id)
             ->update([
                 'title' => $request->title,
