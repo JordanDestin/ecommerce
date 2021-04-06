@@ -49,8 +49,10 @@ class ProductController extends Controller
         $image = $request->file('image');
         $name = time() . '.' . $image->extension();
         $img = InterventionImage::make($image->path());
-        $img->widen(800)->encode()->save(public_path('/images/') . $name);
-        $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+      //  $img->widen(800)->encode()->save(public_path('/images/') . $name);
+      //  $img->widen(400)->encode()->save(public_path('/images/thumbs/') . $name);
+        $img->resize(300, 200)->encode()->save(public_path('/images/') . $name);
+        $img->resize(300, 200)->encode()->save(public_path('/images/thumbs/') . $name);
 
        $product =  Product::create([
             'title' => $request->title,

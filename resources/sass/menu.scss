@@ -1,8 +1,40 @@
-navbar-dark bg-dark {
- background-color: black;
- color: fff !important;
+nav {
+    color: #6a6b6d !important;
+    display: flex;
+    height: 80px;
 }
 
+.navbar-brand{
+    width: 20%;
+    font-size: 1.8rem;
+    color: #6a6b6d !important;
+    margin-left: 1rem;
+}
+
+form{
+    width: 80%;
+    background: #fff;
+}
+
+form > #search{
+    width: 90%;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+form > button{
+    width: 10%;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+nav a {
+    color: #6a6b6d !important;
+}
+
+/*
 .menu{
     width: 80%;
 }
@@ -38,4 +70,4 @@ li > a {
     width: 60%;
 }
 
-
+*/

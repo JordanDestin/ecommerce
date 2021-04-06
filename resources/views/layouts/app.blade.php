@@ -36,33 +36,29 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="{{route('products.index')}}">Ecommerce</a>
+  <nav class="navbar navbar-expand-lg d-flex p-2">
+    <h2><a class="navbar-brand" href="{{route('products.index')}}">Ecommerce</a></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="menu">
+      
         
-        <li>
           <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Search" aria-label="Search" value="{{ request()->q ?? '' }}">
             <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
           </form>
-        </li>
-         
-      </ul>
+        
       
-
       @guest
-      <li class="nav-item">
+   
           <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
-      </li>
+     
  {{--     @if (Route::has('register'))
           <li class="nav-item">
               <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
           </li>
       @endif --}}
        @else
-      <li class="nav-item dropdown">
+      
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }} <span class="caret"></span>
           </a>
@@ -80,12 +76,14 @@
                   @csrf
               </form>
           </div>
-      </li>
+ 
   @endguest
-  <li> <a href="{{route('cart.index')}}" data-target="mobile" class="panier" style="color: rgb(43, 9, 104);"><i class="Small material-icons left">add_shopping_cart</i>{{Cart::count()}}</a></li>      
+   <a href="{{route('cart.index')}}" data-target="mobile" class="panier" style="color: rgb(43, 9, 104);"><i class="Small material-icons left">add_shopping_cart</i>{{Cart::count()}}</a>   
       
     </div>
   </nav>
+
+  
   <div class="row">
     <div class="col-sm-12">
       <ul class="category">

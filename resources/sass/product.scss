@@ -1,12 +1,34 @@
+
+#carousel{
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-item {
+    width: 100%;
+    height: 100%;
+    background: #1daadf;
+}
+
+.carousel-item > img{
+    width: 80%;
+    height: 480px;
+  //  padding: 15px;
+    justify-content: center;
+}
+
+.carousel-control-prev, .carousel-control-next {
+    background: #6cb2eb;
+}
+
+
 .cardproduct{
     width: 89%;
     height: 400px;
     margin: 0 auto;
 }
 
-img{
-    width: 100% !important;
-}
+
 
 .card-content{
     padding: 10px;
