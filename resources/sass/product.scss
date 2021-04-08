@@ -8,6 +8,7 @@
     width: 100%;
     height: 100%;
     background: #1daadf;
+   
 }
 
 .carousel-item > img{
@@ -19,7 +20,64 @@
 
 .carousel-control-prev, .carousel-control-next {
     background: #6cb2eb;
+    width: 5% !important;
 }
+
+#carousel-popular{
+    width: 100%;
+    height: 300px;
+}
+
+.imgpopular{
+    width: 250px !important;
+    height: 300px !important;
+}
+
+
+.carousel-control-prev, .carousel-control-next {
+    background: #6cb2eb;
+}
+
+.category1{
+    width: 100%;
+    height: 400px;
+
+}
+
+.category2{
+    width: 100%;
+    height: 400px;
+  
+}
+
+.sous-category1{
+    background: rgb(55, 0, 255);
+}
+
+.sous-category2{
+    background: rgb(102, 255, 0);
+}
+
+.sous-category3{
+    background: rgb(68, 102, 88);
+}
+
+.sous-category4{
+    background: rgb(203, 214, 48);
+}
+
+.sous-category5{
+    background: rgb(255, 0, 179);
+}
+
+
+
+
+
+
+
+
+
 
 
 .cardproduct{
