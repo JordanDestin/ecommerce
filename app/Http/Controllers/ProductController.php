@@ -10,7 +10,7 @@ class ProductController extends Controller
 
     public function index()
     {
-      /*  if (request()->categorie) 
+       if (request()->categorie) 
         {
             $products = Product::with('categories')->whereHas('categories', function ($query) {
                 $query->where('slug', request()->categorie);
@@ -19,14 +19,14 @@ class ProductController extends Controller
         else 
         {
             $products = Product::with('categories')->paginate(8);
-        }*/
-        $products = Product::all();
+        }
+        //$products = Product::all();
 
-        //return view('products.index')->with('products', $products);
+        return view('products.index')->with('products', $products);
 
-        return view('products.index', array(
+       /* return view('products.index', array(
             'products' => $products
-        ));
+        ));*/
     }
 
     public function show($id)

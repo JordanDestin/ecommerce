@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="container">
+    {{-- 
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -72,6 +73,101 @@
                 </div>
             </div>
         </div>
+    </div>
+    --}}
+
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 order">
+            <div class="card">
+                <div class="card-header">JE CRÉE UN NOUVEAU COMPTE</div>
+                <div class="card-body">
+                    <form class="w-100" method="POST" action="{{ route('register') }}">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                            <label for="firstName">Prénom</label>
+                            <input type="text" class="form-control" id="firstName" name="firstname" placeholder="Prénom" value="" required>
+                            <div class="invalid-feedback">
+                                Valid first name is required.
+                            </div>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                            <label for="lastName">Nom</label>
+                            <input type="text" class="form-control" id="lastname" placeholder="Nom" value="" required>
+                            <div class="invalid-feedback">
+                                Valid last name is required.
+                            </div>
+                            </div>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="name" placeholder="you@example.com">
+                            <div class="invalid-feedback">
+                            Please enter a valid email address for shipping updates.
+                            </div>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="address">Addresse</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Addresse" required>
+                            <div class="invalid-feedback">
+                            Please enter your shipping address.
+                            </div>
+                        </div>
+            
+                        <div class="mb-3">
+                            <label for="address2">Complément d'addresse</label>
+                            <input type="text" class="form-control" id="address2" name="address2" placeholder="Complément d'addresse">
+                        </div>
+            
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                            <label for="country">Ville</label>
+                            <input type="text" class="form-control" id="city" name="city" placeholder="Ville" required>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                            </div>
+        
+                            <div class="col-md-6 mb-3">
+                            <label for="zip">Code Postal</label>
+                            <input type="text" class="form-control" id="zip" name="zip" placeholder="Code Postal" required>
+                            <div class="invalid-feedback">
+                                Zip code required.
+                            </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="password">Mot de passe</label>
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Mot de passe" required autocomplete="new-password">
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="password-confirm">Confirmation mot de passe</label>
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirmation mot de passe" required autocomplete="new-password">
+                        </div>
+                       
+                        <div class="row mb-0">
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Créer mon compte') }}
+                                </button>
+                            </div>
+                        </div>
+                        <hr class="mb-4">
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <hr class="mb-4">
     </div>
 </div>
 @endsection

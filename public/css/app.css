@@ -11036,12 +11036,11 @@ li > a {
 .carousel-item {
   width: 100%;
   height: 100%;
-  background: #1daadf;
 }
 
 .carousel-item > img {
   width: 80%;
-  height: 480px;
+  height: 550px;
   justify-content: center;
 }
 
@@ -11049,11 +11048,6 @@ li > a {
 .carousel-control-next {
   background: #6cb2eb;
   width: 5% !important;
-}
-
-#carousel-popular {
-  width: 100%;
-  height: 300px;
 }
 
 .imgpopular {
@@ -11066,34 +11060,8 @@ li > a {
   background: #6cb2eb;
 }
 
-.category1 {
-  width: 100%;
-  height: 400px;
-}
-
-.category2 {
-  width: 100%;
-  height: 400px;
-}
-
-.sous-category1 {
-  background: #3700ff;
-}
-
-.sous-category2 {
-  background: #66ff00;
-}
-
-.sous-category3 {
-  background: #446658;
-}
-
-.sous-category4 {
-  background: #cbd630;
-}
-
-.sous-category5 {
-  background: #ff00b3;
+.card-img-top {
+  height: 250px !important;
 }
 
 .cardproduct {

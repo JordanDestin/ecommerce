@@ -8,8 +8,9 @@
     </div>
     <div class="col s12 m6">
       <h4>{{ $product->name }}</h4>
-      <p><strong> € TTC</strong></p>
+      
       <p>{{ $product->description }}</p>
+      <p class="text-center"><strong>{{$product->getPrice() }} € TTC</strong></p>
       <form  method="POST" action="{{ route('cart.store') }}">
         @csrf
         <div class="input-field col">
@@ -24,6 +25,7 @@
       </form>
     </div>
   </div>
+  
 
 </div>
 @endsection
