@@ -11085,3 +11085,7 @@ a {
   transform: translateX(50%);
 }
 
+.dashboard {
+  height: 150px;
+}
+

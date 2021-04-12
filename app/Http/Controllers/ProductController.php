@@ -12,9 +12,7 @@ class ProductController extends Controller
     {
        if (request()->categorie) 
         {
-            $products = Product::with('categories')->whereHas('categories', function ($query) {
-                $query->where('slug', request()->categorie);
-            })->paginate(8);
+            $products = Product::all()->paginate(8);
         } 
         else 
         {

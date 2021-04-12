@@ -14,27 +14,22 @@ class CategoriesTableSeeder extends Seeder
     {
         Category::create([
             'name' => 'Vêtements',
-            'slug' => 'vetements'
         ]);
 
         Category::create([
             'name' => 'Chaussures',
-            'slug' => 'chaussure'
         ]);
 
         Category::create([
             'name' => 'Accessoires',
-            'slug' => 'accessoire'
         ]);
 
         Category::create([
             'name' => 'Maquillages',
-            'slug' => 'maquillage'
         ]);
 
         Category::create([
             'name' => 'Parfums',
-            'slug' => 'parfum'
         ]);
     }
 }

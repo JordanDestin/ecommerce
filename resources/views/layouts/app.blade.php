@@ -40,17 +40,13 @@
     <h2><a class="navbar-brand" href="{{route('products.index')}}">Ecommerce</a></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      
-        
-          <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Search" aria-label="Search" value="{{ request()->q ?? '' }}">
-            <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
-          </form>
-        
-      
+      <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Search" aria-label="Search" value="{{ request()->q ?? '' }}">
+          <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
+      </form>
+
       @guest
-   
-          <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+      <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
      
  {{--     @if (Route::has('register'))
           <li class="nav-item">
@@ -62,7 +58,6 @@
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }} <span class="caret"></span>
           </a>
-  
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="{{ route('home') }}">Mes commandes</a>
   
@@ -71,7 +66,6 @@
                                   document.getElementById('logout-form').submit();">
                   {{ __('Logout') }}
               </a>
-  
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
