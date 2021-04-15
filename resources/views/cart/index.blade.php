@@ -74,8 +74,8 @@
                             <strong>{{getprice(Cart::tax())}} €</strong>
                             </div>
                         </div>
-                        <hr><br>
-                        <div class="row" style="background-color: lightgrey">
+                        <hr>
+                        <div class="row">
                             <div class="col s6">
                             Total TTC (hors livraison)
                             </div>
@@ -83,18 +83,18 @@
                             <strong>{{getprice(Cart::total())}} €</strong>
                             </div>
                         </div>
-                        <div id="action" class="card-action">
-                            <p>
-                            
-                              @if(Cart::total())
-                                <a href="{{route('payment.index')}}">Commander</a>
-                              @endif
-                            </p>
-                          </div>
+                        <div class="col-12 mt-2 text-center">
+                            @if(Cart::total())
+                                
+                            <button type="submit" class="btn btn-primary">
+                                <a href="{{route('address.index')}}">Commander</a>
+                            </button>
+                        @endif
+                        </div>
                     </div>
-
+        
                 </div>
-
+        
             </div>
         </div>
     </div>

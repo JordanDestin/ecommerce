@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-
+//Route::post('/register', 'Auth\RegisterController@createUser')->name('test.user');
 
 //Route::get('/', 'ProductController@index')->name('home');
 Route::get('/', 'ProductController@index')->name('products.index');
@@ -23,6 +23,9 @@ Route::get('search', 'ProductController@search')->name('products.search');
 
 
 Route::group(['middleware' =>['auth']], function(){
+    Route::get('addresse-livraison', 'AddressController@index')->name('address.index');
+    Route::post('ajouter-addresse', 'AddressController@store')->name('address.store');
+
     Route::get('mon-panier', 'CartController@index')->name('cart.index');
     Route::post('/panier/ajouter', 'CartController@store')->name('cart.store');
     Route::patch('panier/{rowId}', 'CartController@update')->name('cart.update');

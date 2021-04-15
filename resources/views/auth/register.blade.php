@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    {{-- 
+  
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -17,6 +17,19 @@
 
                             <div class="col-md-6">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('firstname') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -74,9 +87,9 @@
             </div>
         </div>
     </div>
-    --}}
+    
 
-
+  {{-- 
     <div class="row justify-content-center">
         <div class="col-md-8 order">
             <div class="card">
@@ -87,14 +100,14 @@
                         <div class="row">
                             <div class="col-md-6 mb-3">
                             <label for="firstName">Prénom</label>
-                            <input type="text" class="form-control" id="firstName" name="firstname" placeholder="Prénom" value="" required>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Prénom" value="" required>
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
                             </div>
                             <div class="col-md-6 mb-3">
                             <label for="lastName">Nom</label>
-                            <input type="text" class="form-control" id="lastname" placeholder="Nom" value="" required>
+                            <input type="text" class="form-control" name="name" id="lastname" placeholder="Nom" value="" required>
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -103,7 +116,7 @@
             
                         <div class="mb-3">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" name="name" placeholder="you@example.com">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
                             <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                             </div>
@@ -168,6 +181,6 @@
         </div>
         
         <hr class="mb-4">
-    </div>
+    </div>--}}
 </div>
 @endsection
