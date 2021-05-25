@@ -85,7 +85,7 @@
                     @if(Cart::total())
                         
                     <button type="submit" class="btn btn-primary">
-                        <a href="{{route('address.index')}}">Commander</a>
+                        <a href="{{route('payment.index')}}">Commander</a>
                     </button>
                 @endif
                 </div>

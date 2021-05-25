@@ -16,8 +16,9 @@ Auth::routes();
 
 //Route::post('/register', 'Auth\RegisterController@createUser')->name('test.user');
 
-//Route::get('/', 'ProductController@index')->name('home');
-Route::get('/', 'ProductController@index')->name('products.index');
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/products', 'ProductController@index')->name('products.index');
 Route::get('produit/{id}', 'ProductController@show')->name('products.show');
 Route::get('search', 'ProductController@search')->name('products.search');
 
@@ -35,9 +36,11 @@ Route::group(['middleware' =>['auth']], function(){
     Route::get('/paiement' , 'PaymentController@index')->name('payment.index');
     Route::post('/payment' ,'PaymentController@store')->name('checkout.store');
     Route::get('/merci', 'PaymentController@thankYou')->name('checkout.thankYou');
+
+    Route::get('mon-compte', 'AccountController@index')->name('account.index');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 // BACK
 Route::view('admin', 'back.index')->name('admin');

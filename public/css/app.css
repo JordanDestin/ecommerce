@@ -10961,7 +10961,7 @@ nav {
 }
 
 .navbar-brand {
-  width: 20%;
+  width: 15%;
   font-size: 1.8rem;
   color: #6a6b6d !important;
   margin-left: 1rem;
@@ -10988,6 +10988,19 @@ form > button {
 
 nav a {
   color: #6a6b6d !important;
+}
+
+.fa-user {
+  line-height: 32px;
+}
+
+.btnlogin {
+  border-radius: 30px;
+  margin-left: 30px;
+}
+
+.iconcart {
+  margin-left: 30px;
 }
 
 /*
@@ -11040,13 +11053,12 @@ li > a {
 
 .carousel-item > img {
   width: 80%;
-  height: 550px;
+  height: 450px;
   justify-content: center;
 }
 
 .carousel-control-prev,
 .carousel-control-next {
-  background: #6cb2eb;
   width: 5% !important;
 }
 
@@ -11055,13 +11067,19 @@ li > a {
   height: 300px !important;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  background: #6cb2eb;
-}
-
 .card-img-top {
   height: 250px !important;
+}
+
+.imagesolde {
+  height: 300px;
+}
+
+.btncategory {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .cardproduct {

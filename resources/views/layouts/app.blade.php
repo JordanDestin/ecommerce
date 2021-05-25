@@ -35,18 +35,18 @@
 </head>
 <body>
 
-
   <nav class="navbar navbar-expand-lg d-flex p-2">
-    <h2><a class="navbar-brand" href="{{route('products.index')}}">Ecommerce</a></h2>
+    <h2><a class="navbar-brand" href="{{route('home')}}">Ecommerce</a></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Search" aria-label="Search" value="{{ request()->q ?? '' }}">
+          <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Rechercher" aria-label="Search" value="{{ request()->q ?? '' }}">
           <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
       </form>
 
       @guest
-      <a class="nav-link" href="{{ route('login') }}">{{ __('Se connecter') }}</a>
+      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btnlogin"><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}">{{ __('Se connecter') }}</a></button>
+      
      
  {{--     @if (Route::has('register'))
           <li class="nav-item">
@@ -59,7 +59,7 @@
               {{ Auth::user()->name }} <span class="caret"></span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('home') }}">Mes commandes</a>
+              <a class="dropdown-item" href="{{ route('account.index') }}">Mes commandes</a>
   
               <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -71,13 +71,10 @@
               </form>
           </div>
  
-  @endguest
-   <a href="{{route('cart.index')}}" data-target="mobile" class="panier" style="color: rgb(43, 9, 104);"><i class="Small material-icons left">add_shopping_cart</i>{{Cart::count()}}</a>   
-      
+       @endguest
+     <a href="{{route('cart.index')}}" class="iconcart" data-target="mobile" class="panier" style="color: rgb(43, 9, 104);"><i class="Small material-icons left">add_shopping_cart</i>{{Cart::count()}}</a>
     </div>
   </nav>
-
-  
   <div class="row">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       @foreach (App\Models\Category::all() as $category)

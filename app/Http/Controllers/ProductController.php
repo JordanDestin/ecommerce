@@ -29,7 +29,8 @@ class ProductController extends Controller
 
     public function show($id)
     {
-        $product = Product::where('id',$id)->firstOrFail();
+     //   $product = Product::where('id',$id)->firstOrFail();
+        $product = Product::findOrFail($id);
 
         return view('products.show', array(
             'product' => $product
