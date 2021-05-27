@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->integer('quantite');
             $table->string('image');
             $table->boolean('tendance')->default(false);
+          //  $table->boolean('tendance')->default(false);
             $table->timestamps();
             
         });

@@ -94,6 +94,7 @@
             <div id="carousel-popular" class="carousel slide col-12" data-ride="carousel">
             <div class="carousel-inner row w-100 mx-auto">
                 @foreach($products->chunk(4) as $key => $product)
+                
                 <div class="carousel-item {{$key == 0 ? 'active' : '' }}"> 
                 <div class="row">
                     @foreach ($product as $item )

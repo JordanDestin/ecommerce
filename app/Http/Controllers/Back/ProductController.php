@@ -59,7 +59,8 @@ class ProductController extends Controller
             'description' => $request->description,
             'price' => $request->price,
             'quantite' => $request->quantite,
-            'image' => $name
+            'image' => $name,
+            'tendance' =>$request->has('tendance')
         ]);
 
         foreach($request->category as $value)
@@ -91,9 +92,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        
         $product = Product::where('id',$id)->first();
        // $categories = Category::all();
-        $categories = Category::where('product_id',$id);
+        $categories = Category_product::where('product_id',$id)->get();
+       // dd($categories);
         return view('back.products.forms', [
             'product' => $product,
             'categories' => $categories
@@ -109,10 +112,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        //$imageProduct = Product::where('id',$id)->first();
-
-        $Product = Product::find($id);
+    {      
+       $Product = Product::find($id);
 
         if($request->has('image')) {
             File::delete([
@@ -133,6 +134,8 @@ class ProductController extends Controller
         $Product->description = $request->description;
         $Product->price = $request->price;
         $Product->quantite = $request->quantite;
+        $Product->tendance = $request->has('tendance');
+        
 
         $Product->save();
 

@@ -12,21 +12,20 @@
     </div>
 
     <div class="box-body">
-
-        <form method="POST"
+      <form method="POST"
             action="@isset($product) {{ route('update.product', $product->id) }} @else {{ route('add.product') }} @endisset"
             enctype="multipart/form-data">  
             @csrf
             <!-- text input -->
-            <div class="form-group">
-                <label>Titre</label>
-                <input type="text" name="title" id="title" class="form-control" placeholder="titre" @isset($product)
+        <div class="form-group">
+          <label>Titre</label>
+          <input type="text" name="title" id="title" class="form-control" placeholder="titre" @isset($product)
                 value="{{ $product->title }}" @else value="" @endisset>
         </div>
 
         <div class="form-group">
-            <label>Quantite</label>
-            <input type="number" name="quantite" id="quantite" class="form-control" placeholder="Quantite"
+          <label>Quantite</label>
+          <input type="number" name="quantite" id="quantite" class="form-control" placeholder="Quantite"
                 @isset($product) value="{{ $product->quantite }}" @else value="" @endisset>
         </div>
 
@@ -34,17 +33,19 @@
             <label>Prix</label>
             <input type="number" name="price" id="price" class="form-control" placeholder="Prix" @isset($product)
             value="{{ $product->price }}" @else value="" @endisset>
-    </div>
-    <div class="form-group">
-        <label>Description</label>
-        <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description">@isset($product){{ $product->description }}@endisset
-        </textarea>
-    </div>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control" name="description" id="description" rows="3" placeholder="Description">@isset($product){{ $product->description }}@endisset
+            </textarea>
+        </div>
 
         <div class="form-group">
             <label>Catégorie</label>
+            
             <select class="form-control" name="category[]" id="category" multiple="multiple">
                 @foreach ($categories as $category)
+                
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
             </select>
@@ -83,7 +84,7 @@
               @if(!isset($product) || $errors->has('image'))
                 <div class="custom-file">
                   <input type="file" id="image" name="image"
-                        class="{{ $errors->has('image') ? ' is-invalid ' : '' }}custom-file-input" required>
+                        class="{{ $errors->has('image') ? ' is-invalid ' : '' }}custom-file-input">
                   <label class="custom-file-label" for="image"></label>
                   @if ($errors->has('image'))
                     <div class="invalid-feedback">
@@ -94,8 +95,14 @@
               @endif
             </div>
           </div>
+       
+          <div class="form-check form-check-inline">
+            <label class="form-check-label" for="inlineCheckbox1">Tendance</label>
+            <input class="form-check-input" type="checkbox" id="tendance" name="tendance" @isset($product){{ $product->tendance ? 'checked' : '' }} @endisset>
+            
+          </div>
 
-
+  
         
         <div class="form-group row mb-0">
             <div class="col-md-12">

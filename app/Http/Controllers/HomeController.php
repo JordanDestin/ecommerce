@@ -15,10 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-
-        //dd($products);
-       // return view('products.index')->with('products', $products);
+        $products = Product::where('tendance',1)->get();
 
        return view('home', array(
         'products' => $products
