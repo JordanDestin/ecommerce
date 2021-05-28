@@ -103,6 +103,7 @@
   </div>
   </div>
 --}}
+<div class="container">
   <div class="mt-3">
   <h2>Produits</h2>
   <div class="row">

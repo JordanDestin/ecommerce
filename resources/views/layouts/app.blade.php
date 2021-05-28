@@ -78,7 +78,8 @@
   <div class="row">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       @foreach (App\Models\Category::all() as $category)
-          <a class="py-2" href="{{ route('products.index', ['categorie' => $category->slug]) }}"> {{$category->name}} </a>
+
+          <a class="py-2" href="{{ route('products.index', ['categorie' => $category->id]) }}"> {{$category->name}} </a>
       @endforeach
     </div>
   </div>

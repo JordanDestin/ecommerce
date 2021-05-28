@@ -92,8 +92,7 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        
-        $product = Product::where('id',$id)->first();
+        $product = Product::findOrFail($id);
        // $categories = Category::all();
         $categories = Category_product::where('product_id',$id)->get();
        // dd($categories);

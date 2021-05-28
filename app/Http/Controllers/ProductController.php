@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -10,26 +11,19 @@ class ProductController extends Controller
 
     public function index()
     {
-       if (request()->categorie) 
+       if(request()->categorie) 
         {
-            $products = Product::all()->paginate(8);
+            $products = Category::find(request()->categorie)->products()->paginate(8);
         } 
         else 
         {
-            $products = Product::with('categories')->paginate(8);
+            $products = Product::paginate(8);
         }
-        //$products = Product::all();
-
         return view('products.index')->with('products', $products);
-
-       /* return view('products.index', array(
-            'products' => $products
-        ));*/
     }
 
     public function show($id)
     {
-     //   $product = Product::where('id',$id)->firstOrFail();
         $product = Product::findOrFail($id);
 
         return view('products.show', array(
@@ -39,7 +33,6 @@ class ProductController extends Controller
 
     public function search ()
     {
-
         $q = request()->input('q');
 
         $products =  Product::where('title','Like',"%$q%")
