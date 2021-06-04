@@ -15,10 +15,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $products = Product::where('tendance',1)->get();
+      $tendanceProducts = Product::where('tendance',1)->get();
 
-       return view('home', array(
-        'products' => $products
+      $newProducts = Product::orderBy('created_at','desc')->limit(8)->get();
+
+     // dd($newProducts);
+
+      return view('home', array(
+        'products' => $tendanceProducts,
+        'newproducts' =>$newProducts
     ));
       //  return view('home');
     }

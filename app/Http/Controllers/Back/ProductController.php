@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers\Back;
 
-use App\DataTables\ProductDataTable;
 use App\Models\Product;
 use App\Models\Category;
-use App\Models\Category_Product;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Intervention\Image\Facades\Image as InterventionImage;
+use App\Models\Category_Product;
+
+use App\DataTables\ProductDataTable;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
+use Intervention\Image\Facades\Image as InterventionImage;
 
 class ProductController extends Controller
 {
@@ -31,10 +32,10 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $listcategories = Category::all();
 
         return view('back.products.forms',array(
-            'categories' => $categories
+            'listcategories' => $listcategories
         ));
     }
 
@@ -92,13 +93,27 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $product = Product::findOrFail($id);
-       // $categories = Category::all();
-        $categories = Category_product::where('product_id',$id)->get();
-       // dd($categories);
+       
+       // $product = Product::findOrFail($id);
+
+        $product = Product::findOrFail($id)->with('categories')->first();
+
+        $toto = Category_product::where('product_id',$id)->get();
+       // dd($toto);
+        $listcategories = Category::all();
+
+        $data = array(
+            'title'=> $product['title']
+        );
+
+       // $categories = $product->categories;
+    
+
+    
         return view('back.products.forms', [
             'product' => $product,
-            'categories' => $categories
+            'listcategories' => $listcategories,
+            //'categories' => $categories
             ]);
     }
 
@@ -112,6 +127,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {      
+        dd($request);
        $Product = Product::find($id);
 
         if($request->has('image')) {

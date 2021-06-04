@@ -11,9 +11,11 @@ nav {
     margin-left: 1rem;
 }
 
-form{
+.searchproduct{
     width: 80%;
     background: #fff;
+    border-radius: 30px !important;
+    box-shadow: 0 2px 8px 0 rgb(34 41 47/ 14%);
 }
 
 form > #search{
@@ -38,48 +40,7 @@ nav a {
     line-height: 32px;
 }
 
-.btnlogin{
-    border-radius: 30px;
-    margin-left: 30px;
-}
-
 .iconcart{
     margin-left: 30px;
 }
-/*
-.menu{
-    width: 80%;
-}
 
-li {
-    list-style: none;
-}
-
-li > a {
-    color: #fff;
-}
-
-.category {
-    text-align: center;
-}
-.category > li {
-   
-    display: inline-block;
-    padding: 20px;
-}
-
-.category > li >a{
-    color: #000;
-}
-
-.btnsearch{
-    background-color: #fff;
-    height: 40px;
-    border-radius: 0 7px 7px 0;
-}
-
-#search{
-    width: 60%;
-}
-
-*/

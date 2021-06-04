@@ -36,23 +36,20 @@
 <body>
 
   <nav class="navbar navbar-expand-lg d-flex p-2">
-    <h2><a class="navbar-brand" href="{{route('home')}}">Ecommerce</a></h2>
+    <h2><a class="navbar-brand" href="{{route('home')}}">SHOP</a></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
+      <div class="searchproduct">
+        <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Rechercher" aria-label="Search" value="{{ request()->q ?? '' }}">
           <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
       </form>
-
-      @guest
-      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btnlogin"><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}">{{ __('Se connecter') }}</a></button>
+      </div>
       
-     
- {{--     @if (Route::has('register'))
-          <li class="nav-item">
-              <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-          </li>
-      @endif --}}
+      @guest
+      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btncustom"><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}">{{ __('Se connecter') }}</a></button>
+      
+    
        @else
       
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -76,10 +73,11 @@
     </div>
   </nav>
   <div class="row">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
+    <div class="container d-flex flex-column flex-md-row justify-content-between mb-3">
       @foreach (App\Models\Category::all() as $category)
-
+      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btncustom">
           <a class="py-2" href="{{ route('products.index', ['categorie' => $category->id]) }}"> {{$category->name}} </a>
+      </button>
       @endforeach
     </div>
   </div>

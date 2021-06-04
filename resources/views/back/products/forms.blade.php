@@ -43,13 +43,43 @@
         <div class="form-group">
             <label>Catégorie</label>
             
-            <select class="form-control" name="category[]" id="category" multiple="multiple">
-                @foreach ($categories as $category)
+           <select class="form-control" name="category[]" id="category" multiple="multiple">
+                @foreach ($listcategories as $category)
                 
                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                 @endforeach
-            </select>
+            </select> 
+
+         
+      {{--
+            @foreach ($listcategories as $listcategory)
+          
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="category[]" value="{{$listcategory->id}}"  >
+                <label class="form-check-label" for="exampleRadios1">
+                  {{$listcategory->name}}
+                </label>
+              </div>
+            @endforeach
+--}}
+  {{--
+        <div class="form-check">
+            @foreach($listcategories as $listcategory)
+            <label class="form-check-label" for="exampleRadios1">
+              {{$listcategory->name}}
+            </label>
+
+               @foreach ($product->categories as $item)
+              
+               {{$item->id}}
+               
+              
+                @endforeach
+
+            @endforeach
         </div>
+
+    
 
 
         {{-- <div class="form-group{{ $errors->has('image') ? ' is-invalid' : '' }}">
@@ -99,7 +129,6 @@
           <div class="form-check form-check-inline">
             <label class="form-check-label" for="inlineCheckbox1">Tendance</label>
             <input class="form-check-input" type="checkbox" id="tendance" name="tendance" @isset($product){{ $product->tendance ? 'checked' : '' }} @endisset>
-            
           </div>
 
   
