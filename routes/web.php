@@ -38,6 +38,7 @@ Route::group(['middleware' =>['auth']], function(){
     Route::get('/merci', 'PaymentController@thankYou')->name('checkout.thankYou');
 
     Route::get('mon-compte', 'AccountController@index')->name('account.index');
+    Route::get('mon-addresse', 'AccountController@addressUser')->name('account.address');
 });
 
 

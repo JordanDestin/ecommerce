@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Address;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
@@ -16,11 +18,15 @@ class AccountController extends Controller
         return view('account.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function addressUser()
+    {
+        $address = Address::where('user_id',Auth::id())->first();
+
+        return view('account.addressuser',array(
+            'addresses' =>$address
+        ));
+    }
+
     public function create()
     {
         //

@@ -39,37 +39,41 @@
     <h2><a class="navbar-brand" href="{{route('home')}}">SHOP</a></h2>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      
       <div class="searchproduct">
         <form action="{{ route('products.search') }}" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-6" type="search" id="search" name="q" placeholder="Rechercher" aria-label="Search" value="{{ request()->q ?? '' }}">
           <button class="btnsearch" type="submit"><i class="fas fa-search fa-2x"></i></button>
-      </form>
+        </form>
       </div>
       
       @guest
       <button type="button" class="btn btn-light btn-sm ml-3 d-flex btncustom"><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}">{{ __('Se connecter') }}</a></button>
-      
-    
        @else
-      
+       <ul class="navbar-nav mr-auto">
+       <li class="nav-item dropdown">
           <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
               {{ Auth::user()->name }} <span class="caret"></span>
           </a>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="{{ route('account.index') }}">Mes commandes</a>
+          
+          <div class="dropdown-menu dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="{{ route('account.index') }}">Mon Compte</a>
   
               <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                   document.getElementById('logout-form').submit();">
-                  {{ __('Logout') }}
+                  {{ __('Déconnexion') }}
               </a>
               <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                   @csrf
               </form>
           </div>
- 
+       </li>
        @endguest
+       <li class="nav-item">
      <a href="{{route('cart.index')}}" class="iconcart" data-target="mobile" class="panier" style="color: rgb(43, 9, 104);"><i class="Small material-icons left">add_shopping_cart</i>{{Cart::count()}}</a>
+       </li>  
+    </ul>
     </div>
   </nav>
   <div class="row">

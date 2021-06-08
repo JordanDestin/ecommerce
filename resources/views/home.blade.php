@@ -81,8 +81,8 @@
       </div>
       
       <div class="mt-3">
-        <h2>Tendances</h2>
-        <div class="row ">
+        <h4>En ce moment</h4>
+        <div class="row mt-3">
             <div id="carousel-popular" class="carousel slide col-12" data-pause="carousel" >
             <div class="carousel-inner row mx-auto">
                 @foreach($products->chunk(4) as $key => $product)
@@ -133,8 +133,8 @@
       </div>
 
       <div class="mt-3">
-        <h2>Nouveautés</h2>
-        <div class="row">
+        <h4> Nos nouveautés</h4>
+        <div class="row mt-3">
             <div id="carousel-news" class="carousel slide col-12" data-pause="carousel" >
             <div class="carousel-inner row mx-auto">
                 @foreach($newproducts->chunk(4) as $key => $newproduct)

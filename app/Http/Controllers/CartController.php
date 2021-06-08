@@ -56,7 +56,7 @@ class CartController extends Controller
         Cart::add($product->id, $product->title, 1, $product->price )
         ->associate('App\Models\Product');
 
-        return redirect()->route('products.index')->with('success', 'Le produit a bien été ajouté.');
+        return back()->with('success', 'Le produit a bien été ajouté.');
     }
 
     /**

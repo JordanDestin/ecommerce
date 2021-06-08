@@ -21,7 +21,7 @@
                                 @csrf
                                 @method('PUT')
                                 <div class="col s12 m6">
-                                <img  src="{{ $product->model->image }}">
+                                <img  src="{{asset('images/thumbs/'. $product->model->image   ) }}">
                               </div>
                                 <div class="col m6 s12">{{ $product->name }}</div>
                                 <div class="col m3 s12"><strong>{{ getPrice($product->subtotal()) }} €</strong></div>

@@ -21,7 +21,7 @@
               </div>
             <div class="col-md-6 text-center dashboard">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                  <a class="text-dark w-100" href="#">
+                  <a class="text-dark w-100" href="{{route('account.address')}}">
                   <div class="card-body ">
                     <h3 class="mb-0">
                       Adresse de livraison
