@@ -39,6 +39,8 @@ Route::group(['middleware' =>['auth']], function(){
 
     Route::get('mon-compte', 'AccountController@index')->name('account.index');
     Route::get('mon-addresse', 'AccountController@addressUser')->name('account.address');
+    Route::get('mes-commandes', 'AccountController@listOrders')->name('account.orders');
+
 });
 
 

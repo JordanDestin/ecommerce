@@ -6,7 +6,6 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Category_Product;
-
 use App\DataTables\ProductDataTable;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;

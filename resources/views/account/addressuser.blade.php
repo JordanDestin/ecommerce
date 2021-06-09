@@ -3,8 +3,6 @@
 @section('content')
 
 <div class="col-md-6 offset-md-3">
-
-
     <div class="card">
         <div class="card-header">Mon addresse</div>
         <div class="card-body">
