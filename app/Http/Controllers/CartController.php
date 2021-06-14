@@ -7,7 +7,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use App\Models\Product;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
-
+use RealRashid\SweetAlert\Facades\Alert;
 
 
 class CartController extends Controller
@@ -47,7 +47,7 @@ class CartController extends Controller
 
         if ($duplicata->isNotEmpty())
         {
-            return redirect()->route('products.index')->with('success', 'Le produit a déja été ajouté.');
+            return back()->with('info', 'Le produit a déja été ajouté.');
         }
 
         // On rajoute le produit dans notre panier
@@ -56,7 +56,10 @@ class CartController extends Controller
         Cart::add($product->id, $product->title, 1, $product->price )
         ->associate('App\Models\Product');
 
+       // Alert::success('Success Title', 'Success Message');
+
         return back()->with('success', 'Le produit a bien été ajouté.');
+       // return back();
     }
 
     /**

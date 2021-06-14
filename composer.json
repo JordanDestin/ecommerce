@@ -17,6 +17,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.4",
+        "realrashid/sweet-alert": "^4.0",
         "stripe/stripe-php": "^7.75",
         "yajra/laravel-datatables": "^1.5"
     },
