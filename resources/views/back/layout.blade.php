@@ -20,7 +20,7 @@
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
   @yield('css')
 
-  @yield('extra-scriptjs')
+  @yield('extra-scriptjs') 
 
 
 </head>
