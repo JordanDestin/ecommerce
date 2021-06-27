@@ -19,8 +19,6 @@ class HomeController extends Controller
 
       $newProducts = Product::orderBy('created_at','desc')->limit(8)->get();
 
-     // dd($newProducts);
-
       return view('home', array(
         'products' => $tendanceProducts,
         'newproducts' =>$newProducts

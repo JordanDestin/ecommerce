@@ -110,7 +110,7 @@
     
     @foreach($products as $product)
     <div class="col-md-4">
-      <div class="card mb-4 box-shadow">
+      <div class="card mb-4 box-shadow d-block mx-auto shadow bg-white">
         <img class="card-img-top" src="{{asset('images/thumbs/' .$product->image  ) }}" alt="Card image cap">
         <div class="card-body">
           <h5 class="">{{ $product->title }}</h5>

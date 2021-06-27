@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container">
     {{--<div class="row ">
         <div id="carousel" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner col-lg-12">
@@ -48,20 +48,46 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-</div>
-    
-    <div class="container">
-      <div class="mt-3">
-        <div class="row mb-2 solde">
-          <div class="col-md-6 p-2">
+
+      <div class="row">
+        <div class="col-sm-6 col-lg-3"> 
+          <div class="single-publication">
+              <figure>
+                  <a href="#">
+                      <img src="https://envytheme.com/tf-demo/edusplash/assets/img/publication/1.jpg" alt="Publication Image">
+                  </a>
+
+                  <ul>
+                      <li><a href="#" title="Add to Favorite"><i class="fa fa-heart"></i></a></li>
+                      <li><a href="#" title="Add to Compare"><i class="fa fa-refresh"></i></a></li>
+                      <li><a href="#" title="Quick View"><i class="fa fa-search"></i></a></li>
+                  </ul>
+              </figure>
+
+              <div class="publication-content">
+                  <span class="category">Book</span>
+                  <h3><a href="#">Think Python</a></h3>
+                  <h4 class="price">$119 <span>$299</span></h4>
+              </div>
+
+              <div class="add-to-cart">
+                  <a href="#" class="default-btn">Add to Cart</a>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-3 p-2 w-100">
+        <div class="row mb-2">
+          <div class="category col-md-6 p-2">
             <div class="card shadow bg-white">
               <img class="imagesolde w-100" src="{{asset('images/vetement.jpg/' ) }}" alt="Card image cap">
-              <button class="btn btn-primary btncategory d-block">
+              <button class="btn btn-primary btncategory ">
                 <a class="py-2" href="{{ route('products.index', ['categorie' => 1]) }}"> Vêtement </a>
               </button>
             </div>
           </div>
-          <div class="col-md-6 p-2">
+          <div class="category col-md-6 p-2">
             <div class="card shadow bg-white">
               <img class="imagesolde w-100" src="{{asset('images/chaussure.jpg/' ) }}" alt="Card image cap">
               <button class="btn btn-primary btncategory">
@@ -69,35 +95,8 @@
               </button>
             </div>
           </div>
-    
         </div>
-        <div class="row mb-2 solde">
-          <div class="col-md-4 p-2">
-            <div class="card shadow bg-white">
-              <img class="imagesolde w-100" src="{{asset('images/maquillage.jpg/' ) }}" alt="Card image cap">
-              <button class="btn btn-primary btncategory">
-                <a class="py-2" href="{{ route('products.index', ['categorie' => 3]) }}">Maquillages</a>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="card shadow bg-white">
-              <img class="imagesolde w-100" src="{{asset('images/sac.jpg/' ) }}" alt="Card image cap">
-              <button class="btn btn-primary btncategory">
-                <a class="py-2" href="{{ route('products.index', ['categorie' => 4]) }}">Parfums</a>
-              </button>
-            </div>
-          </div>
-          <div class="col-md-4 p-2">
-            <div class="card shadow bg-white">
-              <img class="imagesolde w-100" src="{{asset('images/accessoire.jpg/' ) }}" alt="Card image cap">
-              <button class="btn btn-primary btncategory">
-                <a class="py-2" href="{{ route('products.index', ['categorie' => 4]) }}">Accessoires</a>
-              </button>
-            </div>
-          </div>
-    
-        </div>
+
       </div>
       
       <div class="mt-3">
@@ -149,6 +148,35 @@
                 <span class="sr-only">Next</span>
             </a>
             </div>
+        </div>
+      </div>
+      <div class="mt-3">
+        <div class="row mb-2 solde">
+          <div class="category col-md-4 p-2">
+            <div class="card shadow bg-white">
+              <img class="imagesolde w-100" src="{{asset('images/maquillage.jpg/' ) }}" alt="Card image cap">
+              <button class="btn btn-primary btncategory">
+                <a class="py-2" href="{{ route('products.index', ['categorie' => 3]) }}">Maquillages</a>
+              </button>
+            </div>
+          </div>
+          <div class="category col-md-4 p-2">
+            <div class="card shadow bg-white">
+              <img class="imagesolde w-100" src="{{asset('images/sac.jpg/' ) }}" alt="Card image cap">
+              <button class="btn btn-primary btncategory">
+                <a class="py-2" href="{{ route('products.index', ['categorie' => 4]) }}">Parfums</a>
+              </button>
+            </div>
+          </div>
+          <div class="category col-md-4 p-2">
+            <div class="card shadow bg-white">
+              <img class="imagesolde w-100" src="{{asset('images/accessoire.jpg/' ) }}" alt="Card image cap">
+              <button class="btn btn-primary btncategory">
+                <a class="py-2" href="{{ route('products.index', ['categorie' => 4]) }}">Accessoires</a>
+              </button>
+            </div>
+          </div>
+    
         </div>
       </div>
 
