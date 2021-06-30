@@ -97,8 +97,8 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id)->with('categories')->first();
 
-        $toto = Category_product::where('product_id',$id)->get();
-       // dd($toto);
+        $categories = Category_product::where('product_id',$id)->get();
+      
         $listcategories = Category::all();
 
         $data = array(

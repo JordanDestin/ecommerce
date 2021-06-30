@@ -15,7 +15,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-      $tendanceProducts = Product::where('tendance',1)->get();
+      $tendanceProducts = Product::where('tendance',1)->with('categories')->get();
 
       $newProducts = Product::orderBy('created_at','desc')->limit(8)->get();
 

@@ -11059,11 +11059,6 @@ nav a {
   opacity: 1;
 }
 
-.category:hover {
-  opacity: 0.7;
-  cursor: pointer;
-}
-
 .cardproduct {
   width: 89%;
   height: 400px;
@@ -11085,8 +11080,13 @@ a {
   transform: translateX(50%);
 }
 
+.toto {
+  width: 253px;
+}
+
 .single-publication {
-  border: 1px solid #f2eee2;
+  height: 390px;
+  box-shadow: 0 2px 8px 0 rgba(34, 41, 47, 0.14);
   margin-bottom: 30px;
   position: relative;
   overflow: hidden;
@@ -11103,39 +11103,6 @@ a {
   display: block;
 }
 
-.single-publication figure ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: absolute;
-  right: -50px;
-  top: 20px;
-  transition: 0.6s;
-  -webkit-transition: 0.6s;
-}
-
-.single-publication:hover figure ul {
-  right: 15px;
-}
-
-.single-publication figure ul li a {
-  display: inline-block;
-  width: 35px;
-  height: 35px;
-  text-align: center;
-  font-size: 15px;
-  background: #ff007d;
-  margin-bottom: 7px;
-  border-radius: 50%;
-  line-height: 35px;
-  color: #fff;
-}
-
-.single-publication figure ul li a:hover {
-  color: #fff;
-  background: #e50663;
-}
-
 .single-publication .publication-content {
   text-align: center;
   padding: 20px;
@@ -11145,7 +11112,7 @@ a {
   display: inline-block;
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
-  color: #ff007d;
+  color: #069ee5;
   font-weight: 600;
 }
 
@@ -11160,7 +11127,7 @@ a {
 }
 
 .single-publication .publication-content h3 a:hover {
-  color: #ff007d;
+  color: #069ee5;
 }
 
 .single-publication .publication-content ul {
@@ -11178,7 +11145,7 @@ a {
 
 .single-publication .publication-content .price {
   font-size: 18px;
-  color: #ff007d;
+  color: #069ee5;
 }
 
 .single-publication .publication-content .price span {
@@ -11226,9 +11193,9 @@ a {
 }
 
 .default-btn {
-  background-color: #ff007d;
+  background-color: #069ee5;
   color: #fff;
-  border: 1px solid #ff007d;
+  border: 1px solid #069ee5;
   display: inline-block;
   padding: 10px 30px;
   border-radius: 30px;
@@ -11237,9 +11204,8 @@ a {
   font-family: "Open Sans", sans-serif;
 }
 
-a:hover {
-  color: #fff;
-  text-decoration: none;
+.add-to-cart > ul > li {
+  display: inline-block;
 }
 
 .dashboard {
