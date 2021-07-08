@@ -46,7 +46,9 @@ Route::group(['middleware' =>['auth']], function(){
 
 
 // BACK
-Route::view('admin', 'back.index')->name('admin');
+//Route::view('admin', 'back.index')->name('admin');
+Route::get('admin', 'Back\LoginController@index'); 
+Route::post('login-admin', 'Back\LoginController@loginAdmin')->name('login.admin');
 
 Route::get('shop', 'Back\ShopController@index')->name('shop.index'); 
 
