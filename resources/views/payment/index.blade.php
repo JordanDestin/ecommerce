@@ -12,7 +12,7 @@
 <div class="col-md-12">
     <a href="{{ route('cart.index') }}" class="btn btn-sm btn-secondary mt-3">Revenir au panier</a>
     <div class="row">
-        <div class="col-md-6 mx-auto">
+        <div class="col-md-6 mx-auto card">
             <h4 class="text-center pt-5">Procéder au paiement</h4>
             <form action="{{ route('checkout.store') }}" method="POST" class="my-4" id="payment-form">
                 @csrf
@@ -36,10 +36,9 @@
     <script>
         // Set your publishable key: remember to change this to your live publishable key in production
         // See your keys here: https://dashboard.stripe.com/account/apikeys
-        var stripe = Stripe('pk_test_51IOTzuLWaP0SswbJZKcLFkKd8nC6Hxjm18j0lVI5EKXCwt1lVvQD0NSaGCz3o2aau2MkYt1qP1lHQ8kqYJNSzZ9100sYn0MwUP');
-        var elements = stripe.elements();
-
-        var style = {
+        const stripe = Stripe('{{ config('stripe.publishable_key') }}');
+        const elements = stripe.elements();
+        const style = {
                 base: {
                     color: "#32325d",
                     fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
@@ -54,7 +53,7 @@
                 iconColor: "#fa755a"
             }
         };
-        var card = elements.create("card", { style: style });
+        const card = elements.create("card", { style: style });
 
         card.mount("#card-element");
 
@@ -67,8 +66,8 @@
             }
         });
         
-        var form = document.getElementById('payment-form');
-        var submitbutton = document.getElementById('submit');
+        const form = document.getElementById('payment-form');
+        const submitbutton = document.getElementById('submit');
 
         form.addEventListener('submit', function(ev) {
         ev.preventDefault();
@@ -90,10 +89,10 @@
             {
             // The payment has been processed!
                 if (result.paymentIntent.status === 'succeeded') {
-                    var paymentIntent = result.paymentIntent;
-                    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                    var url = form.action; 
-                    var redirect = '/merci';
+                    const paymentIntent = result.paymentIntent;
+                    const token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    const url = form.action; 
+                    const redirect = '/home';
                     fetch(
                         url,
                         {
@@ -109,14 +108,11 @@
                             })
                         }
                     ).then((data) => {
-                        //form.reset();
-                       // window.location.href = redirect;
+                        window.location.reload();
                     })
                     .catch((error) => {
                         console.log(error);
                     })
-
-
                 }
             }
         });

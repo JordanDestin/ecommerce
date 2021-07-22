@@ -91,7 +91,7 @@
                             <div class="publication-content">
                                 <span class="category">Book</span>
                                 <h3><a href="{{ route('products.show',$item->id) }}">{{ $item->title }}</a></h3>
-                                <h4 class="price">{{$item->getPrice() }} € TTC</h4>
+                                <h4 class="price">{{$item->getPrice() }}€</h4>
                             </div>
                             <div class="add-to-cart">
                                 <a href="{{ route('products.show',$item->id) }}" class="default-btn">Ajouter au panier</a>
@@ -163,9 +163,8 @@
                                   </a>
                               </figure>
                               <div class="publication-content">
-                                  <span class="category">Book</span>
                                   <h3><a href="{{ route('products.show',$item->id) }}">{{ $item->title }}</a></h3>
-                                  <h4 class="price">{{$item->getPrice() }} € TTC</h4>
+                                  <h4 class="price">{{$item->getPrice() }}€</h4>
                               </div>
                               <div class="add-to-cart">
                                   <a href="{{ route('products.show',$item->id) }}" class="default-btn">Ajouter au panier</a>
@@ -189,19 +188,13 @@
             </div>
         </div>
       </div>
-
-      
-
-        <div class="row">
-          <div class="col-md-6 offset-md-3">
-            <button class="btn btn-light btn-sm   btncustom">
-              <a href="{{ route('products.index') }}">Voir tous les produits</a>
-            </button>
-          </div>
+      <div class="row mb-3">
+        <div class="col-md-6 offset-md-3 text-center">
+          <button class="btn btn-light btncustom">
+            <a href="{{ route('products.index') }}">Voir tous les produits</a>
+          </button>
         </div>
-    
-          
-     
+      </div> 
 </div>
 
 @endsection

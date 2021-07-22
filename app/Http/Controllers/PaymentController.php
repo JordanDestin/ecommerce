@@ -35,17 +35,26 @@ class PaymentController extends Controller
         else
         {
             // Création d'une intention de paiement https://stripe.com/docs/payments/accept-a-payment?ui=elements
-            $stripe = new \Stripe\StripeClient("sk_test_51IOTzuLWaP0SswbJ7D7AB2DyEXdk4Z2v07iTp2HY8jqLLQaEWJMtwnFBuMExAgPYOhVgvjagOzKuHo7CFAC4sZ8x00XOEENHQi");
+          /*  $stripe = new \Stripe\StripeClient(config('stripe.secret_key'));
 
             $intent= $stripe->paymentIntents->create([
                 'amount' => round(Cart::total()),
                 'currency' => 'eur',
         
             ]);
-
+dd($intent);*/
             //Grâce à l'helper Arr::get on va récupéré la clef secrete
+
+            // Set your secret key. Remember to switch to your live secret key in production.
+            // See your keys here: https://dashboard.stripe.com/apikeys
+            \Stripe\Stripe::setApiKey(config('stripe.secret_key'));
+
+            $intent = \Stripe\PaymentIntent::create([
+                'amount' => round(Cart::total()),
+                'currency' => 'eur',
+            ]);
             $clientSecret = Arr::get($intent,'client_secret');
-       
+        
             return view('payment.index', array(
                 'clientSecret' => $clientSecret
             ));
@@ -95,35 +104,20 @@ class PaymentController extends Controller
             'price' => $product->price
         ]);
        // $order->payment_intent_id = $data['paymentIntent']['id'];
-      /*  $order->amount = $data['paymentIntent']['amount'];
-        $order->payment_created = (new DateTime())->setTimesTamp($data['paymentIntent']['created'])->format('y-m-d H:i:s');
-        $order->title = $product->name;
-        $order->quantite = $product->qty;
-        $order->price = $product->price;
-        $order->user_id = Auth()->user()->id;
-        $order->save();*/
-    
     }
-
-    
         if($data['paymentIntent']['status'] == 'succeeded')
         {
             Cart::destroy();
             Session::flash('success','Votre commande à été traitée avec succes');
-            return response()->json(['success' => 'Payment Intent Succeeded']);
+            return response()->json(['success' => 'Le paiement à réussi']);
+            //return back()->with('success', 'Le paiement à réussi.');
         }
         else
         {
-            return response()->json(['error' => 'Payment Intent Not Succeeded']);
+            return response()->json(['error' => 'Le paiement à échoué']);
         }
-
-   
 }
 
-    public function thankYou()
-    {
-        return Session::has('success') ? view('checkout.merci') : redirect()->route('home');
-    }
 
     /**
      * Display the specified resource.

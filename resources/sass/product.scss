@@ -1,4 +1,3 @@
-
 #carousel{
     height: 100%;
     width: 100%;
@@ -19,23 +18,18 @@
 }
 
 .carousel-control-prev, .carousel-control-next {
-
-    width: 5% !important;
+    width: 2% !important;
+    color: #000000;
 }
-
-
 
 .imgpopular{
     width: 250px !important;
     height: 300px !important;
 }
 
-
-
 .card-img-top{
-    height: 250px !important;
+    height: 315px !important;
 }
-
 
 .imagesolde{
     height: 300px;
@@ -46,11 +40,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    background: #fff;
     visibility: hidden;
     text-align: center;
     transform: translate(-50%,-50%);
-    transition: .4s;
+    transition: .6s;
+    background-color: #069ee5;
+ 
+    border: 1px solid #069ee5;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.btncategory > a {
+    color: #fff !important;
 }
 .category:hover .btncategory {
     visibility: visible;
@@ -58,6 +62,9 @@
     opacity: 1;
 }
 
+.category:hover{
+    opacity: 0.5;
+}
 
 .cardproduct{
     width: 89%;
@@ -81,16 +88,9 @@ a{
 }
 
 
-.toto{
-    width: 253px;
-}
-
-
-
-
-
 .single-publication {
-    height: 390px;
+    height: 430px;
+    width: 274px;
     box-shadow: 0 2px 8px 0 rgb(34 41 47/ 14%);
     //border: 1px solid #252522;
     margin-bottom: 30px;
@@ -128,7 +128,7 @@ a{
     color: #1f2d30;
 }
 .single-publication .publication-content h3 a:hover {
-    color: #069ee5;
+    color: #141516;
 }
 .single-publication .publication-content ul {
     list-style-type: none;
@@ -143,7 +143,7 @@ a{
 }
 .single-publication .publication-content .price {
     font-size: 18px;
-    color: #069ee5;
+    color: #141516;
 }
 .single-publication .publication-content .price span {
     color: #6f6f6f;
@@ -171,7 +171,7 @@ a{
     visibility: visible;
     transform: scale(1);
     -webkit-transform: scale(1);
-    opacity: 1;
+    opacity: 0.5;
 }
 .single-publication .add-to-cart .default-btn {
     margin-top: 28px;

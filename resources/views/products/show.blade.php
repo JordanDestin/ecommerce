@@ -2,14 +2,12 @@
 
 @section('content')
 
-<div class="container">
+<div class="container card">
   <h3>{{$product->title}}</h3>
   <div class="row row-cols-2">
-    
     <div class="col"><img src="{{asset('images/thumbs/' .$product->image  ) }}"></div>
     <div class="col">
       <h4>{{ $product->name }}</h4>
-      
       <p>{{ $product->description }}</p>
       <p class="text-center"><strong>{{$product->getPrice() }} € TTC</strong></p>
       <form  method="POST" action="{{ route('cart.store') }}">
