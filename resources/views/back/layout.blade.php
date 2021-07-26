@@ -37,6 +37,18 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Dashboard</a>
       </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        @auth
+        
+
+          <a class="dropdown-item" href="{{ route('logout.admin') }}">
+                  {{ __('Déconnexion') }}
+              </a>
+              
+        @endauth
+      </li>
+
+      
     </ul>
   </nav>
   <!-- /.navbar -->

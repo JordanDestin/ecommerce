@@ -43,26 +43,33 @@ Route::group(['middleware' =>['auth']], function(){
 
 });
 
+Route::get('admin', 'Back\LoginController@index'); 
+Route::post('login-admin', 'Back\LoginController@loginAdmin')->name('login.admin');
+
+Route::middleware(['auth','admin'])->group(function () {
+    Route::get('logout-admin', 'Back\LoginController@logoutAdmin')->name('logout.admin');
+
+    Route::get('shop', 'Back\ShopController@index')->name('shop.index'); 
+    
+    Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
+    Route::get('create-products', 'Back\ProductController@create')->name('create.product');
+    Route::get('modify-products/{id}', 'Back\ProductController@edit')->name('edit.product');
+    Route::post('add-products', 'Back\ProductController@store')->name('add.product');
+    Route::post('update-products/{id}', 'Back\ProductController@update')->name('update.product');
+    Route::delete('destroy-product/{id}','Back\ProductController@destroy')->name('destroy.product');
+    
+    Route::get('admin-category', 'Back\CategoryController@index')->name('list.categories'); 
+    Route::get('create-category', 'Back\CategoryController@create')->name('create.category');
+    Route::post('add-category', 'Back\CategoryController@store')->name('add.category');
+    Route::get('modify-category/{id}', 'Back\CategoryController@edit')->name('edit.category');
+    Route::post('update-category/{id}', 'Back\CategoryController@update')->name('update.category');
+    Route::delete('destroy-category/{id}','Back\CategoryController@destroy')->name('destroy.category');
+   
+});
 
 
 // BACK
 //Route::view('admin', 'back.index')->name('admin');
-Route::get('admin', 'Back\LoginController@index'); 
-Route::post('login-admin', 'Back\LoginController@loginAdmin')->name('login.admin');
 
-Route::get('shop', 'Back\ShopController@index')->name('shop.index'); 
 
-Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
-Route::get('create-products', 'Back\ProductController@create')->name('create.product');
-Route::get('modify-products/{id}', 'Back\ProductController@edit')->name('edit.product');
-Route::post('add-products', 'Back\ProductController@store')->name('add.product');
-Route::post('update-products/{id}', 'Back\ProductController@update')->name('update.product');
-Route::delete('destroy-product/{id}','Back\ProductController@destroy')->name('destroy.product');
-
-Route::get('admin-category', 'Back\CategoryController@index')->name('list.categories'); 
-Route::get('create-category', 'Back\CategoryController@create')->name('create.category');
-Route::post('add-category', 'Back\CategoryController@store')->name('add.category');
-Route::get('modify-category/{id}', 'Back\CategoryController@edit')->name('edit.category');
-Route::post('update-category/{id}', 'Back\CategoryController@update')->name('update.category');
-Route::delete('destroy-category/{id}','Back\CategoryController@destroy')->name('destroy.category');
 

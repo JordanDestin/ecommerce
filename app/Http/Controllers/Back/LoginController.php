@@ -7,8 +7,12 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
+
 class LoginController extends Controller
 {
+
+
+
     public function index()
     {
         return view('back.auth.loginadmin');
@@ -18,7 +22,15 @@ class LoginController extends Controller
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'admin' => 1])) {
             return redirect()->route('shop.index');
-           dd('hello');
+        }
+        else
+        {
+            return redirect()->route('home');
         }
     }
+
+    public function logoutAdmin(Request $request) {
+        Auth::logout();
+        return redirect()->route('home');
+      }
 }
