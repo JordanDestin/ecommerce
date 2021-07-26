@@ -40,7 +40,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         @auth
         
-
           <a class="dropdown-item" href="{{ route('logout.admin') }}">
                   {{ __('Déconnexion') }}
               </a>
@@ -51,65 +50,20 @@
       
     </ul>
   </nav>
-  <!-- /.navbar -->
-{{--
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Sidebar -->
-    <div class="sidebar">
 
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          @include('back.partials.menu') 
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
---}}
-  <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-  <!--   <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-12">
-            <h1 class="m-0 text-dark">Les titressssss ici</h1>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <!-- /.content-header -->
 
-    <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
+      <div id="app" class="container-fluid">
+
+        <example-component></example-component>
           @yield('main')
         <!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
 
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- Default to the left -->
-    <strong>Copyright ici.</strong>
-  </footer>
-</div>
-<!-- ./wrapper -->
+<script src="{{ asset('/js/app.js') }}"></script>
 
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.0.4/js/adminlte.min.js"></script>
 
 @yield('js')
 </body>
