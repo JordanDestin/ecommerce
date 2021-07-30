@@ -21,7 +21,7 @@ class LoginController extends Controller
     public function loginAdmin(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password, 'admin' => 1])) {
-            return redirect()->route('shop.index');
+            return redirect()->route('dashboard');
         }
         else
         {

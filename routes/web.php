@@ -48,8 +48,10 @@ Route::post('login-admin', 'Back\LoginController@loginAdmin')->name('login.admin
 
 Route::middleware(['auth','admin'])->group(function () {
     Route::get('logout-admin', 'Back\LoginController@logoutAdmin')->name('logout.admin');
-
+    
+    Route::view('dashboard', 'back.index')->name('dashboard');
     Route::get('shop', 'Back\ShopController@index')->name('shop.index'); 
+    
     
     Route::get('admin-products', 'Back\ProductController@index')->name('list.product'); 
     Route::get('create-products', 'Back\ProductController@create')->name('create.product');

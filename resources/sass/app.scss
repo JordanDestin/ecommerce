@@ -1,8 +1,40 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
+
+
+* {
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: #f8f8f8 !important;
+}
+
+.btncustom{
+    border-radius: 30px !important;
+    margin-left: 30px !important;
+    background-color: #fff !important;
+    box-shadow: 0 2px 8px 0 rgb(34 41 47/ 14%);
+}
+
+
+
 // Variables
-@import 'variables';
+//@import 'variables';
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+// Menu
+@import 'menu';
+
+// Produits
+@import 'product';
+
+
+@import 'back';
