@@ -25,8 +25,6 @@
 
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
-
   <!-- Navbar -->
   <nav class="main-header navbar navbar-expand navbar-white navbar-light">
     <!-- Left navbar links -->
@@ -47,20 +45,14 @@
         @endauth
       </li>
 
-      
     </ul>
-  </nav>
-
-  <div class="content-wrapper">
-
-    <div class="content">
+  </nav>   
       <div id="app" class="container-fluid">
-
-        <example-component></example-component>
+        <router-view></router-view>
           @yield('main')
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-    </div>
+   
 
 <script src="{{ asset('/js/app.js') }}"></script>
 

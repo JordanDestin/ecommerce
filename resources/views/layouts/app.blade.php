@@ -34,7 +34,7 @@
 
 </head>
 <body>
-
+<div class="container">
   <nav class="navbar navbar-expand-lg d-flex p-2">
     <h2><a class="navbar-brand" href="{{route('home')}}">SHOP</a></h2>
 
@@ -48,7 +48,7 @@
       </div>
       
       @guest
-      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btncustom"><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}">{{ __('Se connecter') }}</a></button>
+      <button type="button" class="btn btn-light btn-sm ml-3 d-flex "><i class="fas fa-user"></i><a class="nav-link" type='button' href="{{ route('login') }}"></a></button>
        @else
        <ul class="navbar-nav mr-auto">
        <li class="nav-item dropdown">
@@ -76,16 +76,16 @@
     </ul>
     </div>
   </nav>
+  
   <div class="row">
-    <div class="container d-flex flex-column flex-md-row justify-content-between mb-3">
+    <div class="container d-flex flex-column flex-md-row justify-content-between mb-3 ">
       @foreach (App\Models\Category::all() as $category)
-      <button type="button" class="btn btn-light btn-sm ml-3 d-flex btncustom">
+
           <a class="py-2" href="{{ route('products.index', ['categorie' => $category->id]) }}"> {{$category->name}} </a>
-      </button>
       @endforeach
     </div>
   </div>
-  
+</div>
  
   @if ( session('success') )
       <div class="alert alert-success">
@@ -106,6 +106,9 @@
     @include('sweetalert::alert')
     @yield('content')
   </main>
+
+  <footer>
+  </footer>
   <script>
     document.getElementById('search').addEventListener('keypress', function (e) {
       if (e.key === 'Enter') {

@@ -1,55 +1,52 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid">
+
+
+
+
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel" data-slide-to="1"></li>
+      <li data-target="#carousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{asset('images/vetement.jpg/' ) }}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>First slide label</h5>
+          <p>Some representative placeholder content for the first slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"src="{{asset('images/shop6.jpg/' ) }}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Second slide label</h5>
+          <p>Some representative placeholder content for the second slide.</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100"src="{{asset('images/shop6.jpg/' ) }}" alt="First slide">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Third slide label</h5>
+          <p>Some representative placeholder content for the third slide.</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
 <div class="container">
-    {{--<div class="row ">
-        <div id="carousel" class="carousel slide" data-ride="carousel">
-          <div class="carousel-inner col-lg-12">
-            @foreach($products as $key => $product)
-            <div class="carousel-item {{$key == 0 ? 'active' : '' }}"> 
-              <img class="d-block w-100"src="{{asset('images/test1.jpg/' ) }}" alt="First slide">
-              <div class="container">
-                <div class="carousel-caption text-left">
-                  <h1>Example headline.</h1>
-                  <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                  <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                </div>
-              </div>
-            </div>
-            @endforeach
-          </div>
-          <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-      --}}
-
-      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img class="d-block w-100"src="{{asset('images/test7.jpg/' ) }}" alt="First slide">
-          </div>
-          <div class="carousel-item">
-            <img class="d-block w-100"src="{{asset('images/test9.jpg/' ) }}" alt="First slide">
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
-
-
       <div class="mt-3 p-2 w-100">
         <div class="row mb-2">
           <div class="category col-md-6 p-2">
@@ -82,7 +79,7 @@
                 <div class="row w-100 mx-auto">
                     @foreach ($product as $item )
                       <div class="col-sm-4 col-lg-3"> 
-                        <div class="single-publication card box-shadow">
+                        <div class="single-publication box-shadow">
                             <figure>
                                 <a href="{{ route('products.show',$item->id) }}">
                                   <img class="card-img-top" src="{{asset('images/thumbs/' .$item->image  ) }}" alt="Card image cap">
@@ -156,7 +153,7 @@
                   <div class="row w-100 mx-auto">
                       @foreach ($newproduct as $item )
                         <div class="col-sm-4 col-lg-3"> 
-                          <div class="single-publication card box-shadow">
+                          <div class="single-publication">
                               <figure>
                                   <a href="{{ route('products.show',$item->id) }}">
                                     <img class="card-img-top" src="{{asset('images/thumbs/' .$item->image  ) }}" alt="Card image cap">

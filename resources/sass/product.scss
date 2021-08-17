@@ -1,5 +1,5 @@
 #carousel{
-    height: 100%;
+    height: 900px;
     width: 100%;
 }
 
@@ -12,7 +12,7 @@
 
 .carousel-item > img{
     width: 80%;
-    height: 450px;
+    height: 900px;
   //  padding: 15px;
     justify-content: center;
 }
@@ -41,14 +41,12 @@
     top: 50%;
     left: 50%;
     visibility: hidden;
-    text-align: center;
     transform: translate(-50%,-50%);
-    transition: .6s;
-    background-color: #069ee5;
- 
-    border: 1px solid #069ee5;
+    background-color: #212529;
+    color: #fff;
+    border: 1px solid #212529;
+    display: inline-block;
     padding: 10px 30px;
-    border-radius: 30px;
     text-transform: uppercase;
     font-family: 'Open Sans', sans-serif;
 }
@@ -62,9 +60,7 @@
     opacity: 1;
 }
 
-.category:hover{
-    opacity: 0.5;
-}
+
 
 .cardproduct{
     width: 89%;
@@ -89,9 +85,10 @@ a{
 
 
 .single-publication {
-    height: 430px;
+    height: 500px;
     width: 274px;
-    box-shadow: 0 2px 8px 0 rgb(34 41 47/ 14%);
+    padding: 18px !important;
+    //box-shadow: 0 2px 8px 0 rgb(34 41 47/ 14%);
     //border: 1px solid #252522;
     margin-bottom: 30px;
     position: relative;
@@ -110,7 +107,7 @@ a{
 
 .single-publication .publication-content {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 .single-publication .publication-content .category {
     display: inline-block;
@@ -151,28 +148,23 @@ a{
     padding-left: 5px;
     font-weight: 300;
 }
+
 .single-publication .add-to-cart {
     position: absolute;
     right: 0;
     bottom: 0;
     left: 0;
-    background: #fff;
-    opacity: 0;
-    visibility: hidden;
+   // visibility: hidden;
     text-align: center;
-    -webkit-transform: scale(.7);
-    transform: scale(.7);
-    height: 105px;
-    -moz-transition: .4s;
-    -webkit-transition: .4s;
-    transition: .4s;
 }
+/*
 .single-publication:hover .add-to-cart {
     visibility: visible;
     transform: scale(1);
     -webkit-transform: scale(1);
-    opacity: 0.5;
+    //opacity: 0.5;
 }
+*/
 .single-publication .add-to-cart .default-btn {
     margin-top: 28px;
     padding: 8px 25px;
@@ -187,16 +179,24 @@ a{
     font-size: 14px;
 }
 .default-btn {
-    background-color: #069ee5;
+    width: 242px;
+    background-color: #212529;
     color: #fff;
-    border: 1px solid #069ee5;
+    border: 1px solid #212529;
     display: inline-block;
     padding: 10px 30px;
-    border-radius: 30px;
+   // border-radius: 30px;
     text-transform: uppercase;
-    font-weight: 600;
+   // font-weight: 600;
     font-family: 'Open Sans', sans-serif;
 }
 .add-to-cart >ul>li {
     display: inline-block;
+}
+
+
+footer{
+    height: 500px;
+    width: 100%;
+    background-color: #E0E7EE;
 }
